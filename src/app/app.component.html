@@ -1,0 +1,33 @@
+<div class="container-fluid bg-secondary bg-gradient">
+  <div class="fixed-top bg-secondary bg-gradient border-bottom border-5 d-flex align-items-center justify-content-center p-1">
+    <div [style.opacity]="useRandom ? '1' : '0.5'" class="d-flex flex-column">
+      <div class="align-self-end">random color</div>
+      <div class="align-self-end">{{ randomColor.hex }}</div>
+    </div>
+  
+    <div class="px-5">
+      <mat-slide-toggle class="example-margin" color="accent" (change)="toggleControls()">
+      </mat-slide-toggle>
+    </div>
+  
+    <div>
+      <div class="input-group">
+        <div matPrefix class="input-group-text" [style.opacity]="useRandom ? '0.5' : '1'">#</div>
+        <input matInput [formControl]="customColorControl" (change)="updateColor()">
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col mt-3" *ngFor="let card of numElements">
+      <app-gradient-card [baseColor]="currentColor.hex"></app-gradient-card>
+    </div>
+  </div>
+  
+  <div class="row p-5" *ngIf="numElements.length >= maxElements">
+    <div class="col d-flex align-items-center justify-content-center">
+      looks like you've reached the end... <a href="." [style.color]="'white'">try another color?</a>
+    </div>
+  </div>
+</div>
+

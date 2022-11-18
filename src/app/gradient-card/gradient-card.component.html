@@ -1,0 +1,7 @@
+<div class="card-base rounded d-flex flex-column align-items-center justify-content-evenly bg-white">
+	<div class="card-content" [ngStyle]="{'background': getGradient()}"></div>
+	<div class="card-expand text-center bg-light">
+		<div>{{ baseColor | uppercase }}</div>
+		<div>{{ gradientColor | uppercase }}</div>
+	</div>
+</div>
